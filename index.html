@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wana Decrypt0r 2.0</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <div class="wana-window">
+
+      <!-- ===== TITLE BAR ===== -->
+      <div class="title-bar">
+        <div class="title-bar-left">
+          <span style="font-size:14px;">&#128274;</span>
+          <span class="title-bar-text">Wana Decrypt0r 2.0</span>
+        </div>
+        <!-- Language dropdown in top-right of title bar -->
+        <div class="lang-dropdown-wrap">
+          <select class="lang-dropdown" id="lang-select">
+            <option>English</option>
+            <option>Spanish</option>
+            <option>Chinese</option>
+            <option>French</option>
+            <option>German</option>
+            <option>Russian</option>
+            <option>Japanese</option>
+            <option>Korean</option>
+            <option>Italian</option>
+            <option>Portuguese</option>
+            <option>Arabic</option>
+            <option>Turkish</option>
+            <option>Dutch</option>
+            <option>Polish</option>
+          </select>
+        </div>
+        <div class="title-bar-controls">
+          <div class="title-bar-btn">&#8211;</div>
+          <div class="title-bar-btn">&#9633;</div>
+          <div class="title-bar-btn" style="background:linear-gradient(to bottom,#e08080,#c04040);color:#fff;">&#10005;</div>
+        </div>
+      </div>
+
+      <!-- ===== MAIN BODY ===== -->
+      <div class="wana-body">
+
+        <!-- === LEFT PANEL === -->
+        <div class="left-panel">
+          <canvas id="matrix-canvas"></canvas>
+
+          <!-- Padlock -->
+          <div class="padlock-wrap">
+            <div class="padlock-icon">&#128274;</div>
+          </div>
+
+          <!-- Timer 1: Payment raise -->
+          <div class="timer-box">
+            <div class="timer-box-label">Payment will be raised on</div>
+            <div class="timer-box-date" id="deadline1-date">loading...</div>
+            <div style="font-size:9px;color:#cc4444;text-align:center;margin-bottom:4px;">Time Left</div>
+            <div class="timer-display" id="timer1">03:00:00:00</div>
+          </div>
+
+          <!-- Timer 2: Files will be lost -->
+          <div class="timer-box yellow">
+            <div class="timer-box-label">Your files will be lost on</div>
+            <div class="timer-box-date" id="deadline2-date">loading...</div>
+            <div style="font-size:9px;color:#cc9900;text-align:center;margin-bottom:4px;">Time Left</div>
+            <div class="timer-display" id="timer2">07:00:00:00</div>
+          </div>
+
+          <!-- Bottom links -->
+          <div class="left-links">
+            <a class="left-link" href="#">About bitcoin</a>
+            <a class="left-link" href="#">How to buy bitcoins?</a>
+            <a class="left-link" href="#">Contact Us</a>
+          </div>
+        </div>
+
+        <!-- === RIGHT PANEL === -->
+        <div class="right-panel">
+
+          <!-- Language ticker -->
+          <div class="lang-ticker">
+            <span class="lang-ticker-label">Ooops, your files have been encrypted!</span>
+            <span class="lang-ticker-translated" id="lang-translated">(Spanish) &iexcl;Vaya! tus archivos han sido cifrados!</span>
+          </div>
+
+          <!-- Scrollable content -->
+          <div class="right-content">
+
+            <div class="section-title">What Happened to My Computer?</div>
+            <div class="section-body">
+              <p>Your important files are encrypted.</p>
+              <p>Many of your documents, photos, videos, databases and other files are no longer accessible because they have been encrypted. Maybe you are busy looking for a way to recover your files, but do not waste your time. Nobody can recover your files without our decryption service.</p>
+            </div>
+
+            <div class="section-title">Can I Recover My Files?</div>
+            <div class="section-body">
+              <p>Sure. We guarantee that you can recover all your files safely and easily. But you have not so enough time.</p>
+              <p>You can decrypt some of your files for free. Try now by clicking &lt;Decrypt&gt;.</p>
+              <p>If you want to decrypt all your files, you need to pay.</p>
+              <p>You only have 3 days to submit the payment. After that the price will be doubled.</p>
+              <p>Also, if you do not pay in 7 days, you will not be able to recover your files forever.</p>
+              <p>We will have free events for users who are so poor that they cannot pay in 6 months.</p>
+            </div>
+
+            <div class="section-title">How to Pay?</div>
+            <div class="section-body">
+              <p>Payment is accepted in Bitcoin only. For more information, please click &lt;About bitcoin&gt;.</p>
+              <p>Please check the current price of Bitcoin and buy some Bitcoins. For more information, click &lt;How to buy bitcoins&gt;.</p>
+              <p>And send the correct amount to the address specified in this window.</p>
+            </div>
+
+            <!-- Bitcoin send section -->
+            <div class="bitcoin-row">
+              <div class="bitcoin-logo">&#8383;</div>
+              <div class="bitcoin-info">
+                <div class="bitcoin-send-label">Send $300 worth of bitcoin to this address:</div>
+                <div class="bitcoin-address-row">
+                  <span class="bitcoin-address" id="btc-address">12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw</span>
+                  <button class="copy-btn" id="copy-btn">Copy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-body">
+              <p>After your payment, click the &lt;Check Payment&gt; button. Best time to check: 30m&ndash;1h after payment.</p>
+              <p>After payment, we will send you the decryption key, and you can recover all your files!</p>
+            </div>
+
+          </div><!-- /.right-content -->
+
+          <!-- Footer warning -->
+          <div class="footer-warning">
+            <strong>Warning:</strong> We strongly recommend you to not remove this software, and disable your anti-virus for a while, until you pay and the payment gets processed. If your anti-virus gets updated and removes this software automatically, it will not be able to recover your files even if you pay!
+          </div>
+
+          <!-- Action buttons -->
+          <div class="action-bar">
+            <button class="action-btn" id="check-payment-btn">Check Payment</button>
+            <button class="action-btn" id="decrypt-btn">Decrypt</button>
+          </div>
+
+        </div><!-- /.right-panel -->
+      </div><!-- /.wana-body -->
+    </div><!-- /.wana-window -->
+  </body>
+</html>
